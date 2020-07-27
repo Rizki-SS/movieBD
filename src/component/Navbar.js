@@ -1,6 +1,3 @@
-import 'bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css'
-
 class Navbar extends HTMLElement {
     constructor() {
         super();
@@ -13,7 +10,7 @@ class Navbar extends HTMLElement {
     }
 
     render() {
-        this.innerHTML = `
+        this.outerHTML = `
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand">${this.title}</a>
         </nav>`

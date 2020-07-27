@@ -1,16 +1,26 @@
 import DataSource from "./data/DataSource.js";
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import './component/InfoCard.js'
 
-async function main() {
-    try {
-        const result = await DataSource.DataInd();
-        console.log(result);
-        const Html = document.querySelector('main');
-        Html.innerHTML = `<p>${result.confirmed.value}</p>
-        <p>${result.recovered.value}</p>
-        `;
-    } catch (message) {
-        fallbackResult(message)
+function main() {
+    const getData = async() => {
+        try {
+            const result = await DataSource.DataInd();
+            console.log(result);
+        } catch (error) {
+
+        }
     }
+
+    const overview = (data) => {
+
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        getData();
+    })
 }
+
 
 export default main();
