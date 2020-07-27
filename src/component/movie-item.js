@@ -13,9 +13,8 @@ class movieItem extends HTMLElement {
     }
 
     render() {
-        this.setAttribute("class", "col-md-3")
+        this.setAttribute("class", "col-md-3 mt-3")
         this.innerHTML = `
-            <style>.card{margin-top:5px}</style>
             <div class="card">
                 <img class="card-img-top" src="${this._data.Poster}" alt="" height="300px">
                 <div class="card-body">

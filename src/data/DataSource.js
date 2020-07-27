@@ -20,6 +20,16 @@ class DataSouce {
             })
     }
 
+    static DataSrc(key) {
+        return fetch('http://www.omdbapi.com/?apikey=f92d146e&s=' + key)
+            .then(response => {
+                return response.json();
+            })
+            .then(responseJson => {
+                return responseJson;
+            })
+    }
+
 
 }
 
