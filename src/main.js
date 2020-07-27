@@ -1,20 +1,23 @@
 import DataSource from "./data/DataSource.js";
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css'
-import './component/InfoCard.js'
+import './component/movie-list.js'
+
 
 function main() {
+    const e = document.querySelector("movie-list");
+
     const getData = async() => {
         try {
             const result = await DataSource.DataInd();
-            console.log(result);
+            movieList(result);
         } catch (error) {
-
+            console.log(error);
         }
     }
 
-    const overview = (data) => {
-
+    const movieList = (data) => {
+        e.data = data;
     }
 
     document.addEventListener("DOMContentLoaded", () => {
