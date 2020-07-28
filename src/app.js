@@ -1,4 +1,4 @@
-import "./component/Navbar.js";
-import main from "./main.js"
+import 'regenerator-runtime';
+import main from "./main.js";
 
-main();
+document.addEventListener("DOMContentLoaded", main);
