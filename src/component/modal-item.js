@@ -12,7 +12,6 @@ class modalItem extends HTMLElement {
         try {
             this.id = this.getAttribute('data-id')
             const result = await DataSource.DataMovie(this.id);
-            console.log(result);
             this.render(result);
         } catch (error) {
             console.log(error);
@@ -43,16 +42,38 @@ class modalItem extends HTMLElement {
                         <img src="${data.Poster}" alt="" height="300px">
                         </div>
                         <aside class="col mt-2">
-                            <ul>
-                            <li>Plot : ${data.Plot}</li>
-                                <li>Year : ${data.Year}</li>
-                                <li>Rated : ${data.Rated}</li>
-                                <li>Released : ${data.Released}</li>
-                                <li>Runtime : ${data.Runtime}</li>
-                                <li>Genre : ${data.Year}</li>
-                                <li>Writer : ${data.Writer}</li>
-                                <li>Language : ${data.Language}</li>
-                            </ul>
+
+                            <div class="row">
+                                <div class="col">
+                                    <p>Year : ${data.Year}</p>
+                                </div>
+                                <div class="col">
+                                    <p>Released : ${data.Released}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <p>Rated : ${data.Rated}</p>
+                                </div>
+                                <div class="col">
+                                    <p>Runtime : ${data.Runtime}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <p>Language : ${data.Language}</p>
+                                </div>
+                                <div class="col">
+                                    <p>Genre : ${data.Year}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <p>Writer : ${data.Writer}</p>
+                                    <p>Plot : ${data.Plot}</p>
+                                </div>
+                            </div>
+
                         </aside>
                     </div>
                 </div>

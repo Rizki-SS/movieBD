@@ -1,6 +1,13 @@
+import './modal-item.js'
+
 class movieItem extends HTMLElement {
     constructor() {
         super();
+        this.detail = () => {
+            const e = document.createElement("modal-item");
+            e.setAttribute("data-id", this._data.imdbID);
+            document.body.append(e);
+        }
     }
 
     connectedCallback() {
@@ -20,10 +27,11 @@ class movieItem extends HTMLElement {
                 <div class="card-body">
                 <h6 class="card-title">${this._data.Title}</h6>
                 <p class="card-text">Years : ${this._data.Year}</p>
-                <button data-id=${this._data.imdbID} class="btn btn-primary more-view" type="button">See more</button>
+                <button class="btn btn-primary more-view" type="button">See more</button>
                 </div>
             </div>
         `
+        this.querySelector(".more-view").addEventListener("click", this.detail);
     }
 }
 

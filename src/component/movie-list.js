@@ -10,14 +10,23 @@ class movieList extends HTMLElement {
         this.render();
     }
 
+    set error(error) {
+        this._error = error;
+        this.renderError();
+    }
+
     render() {
-        console.log(this._data.Search);
         this.innerHTML = "";
         this._data.Search.forEach(item => {
             const e = document.createElement("movie-item");
             e.data = item;
             this.appendChild(e);
         });
+    }
+
+    renderError() {
+        this.innerHTML = `
+        <h1 style="margin:10px auto">${this._error}</h1>`
     }
 }
 

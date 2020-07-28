@@ -2,7 +2,6 @@ import DataSource from "./data/DataSource.js";
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './component/movie-list.js'
-import './component/modal-item.js'
 import './component/Navbar.js'
 
 
@@ -15,7 +14,7 @@ function main() {
             const result = await DataSource.DataInd();
             movieList(result);
         } catch (error) {
-            console.log(error);
+            searchError("check your internet connection");
         }
     }
 
@@ -24,7 +23,7 @@ function main() {
             const result = await DataSource.DataSrc(searchElement.value);
             movieList(result);
         } catch (error) {
-            console.log(error);
+            searchError(error);
         }
     }
 
@@ -32,7 +31,17 @@ function main() {
         e.data = data;
     }
 
-    searchElement.event = search;
+    const searchError = (data) => {
+        e.error = data;
+    }
+
+    searchElement.event = () => {
+        if (searchElement.value != "") {
+            search();
+        } else {
+            getData();
+        }
+    };
 
     document.addEventListener("DOMContentLoaded", () => {
         getData();
