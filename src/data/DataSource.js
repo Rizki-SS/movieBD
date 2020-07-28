@@ -14,7 +14,6 @@ class DataSouce {
     }
 
     static DataMovie(id) {
-        // console.log(`${this.base()}i=${id}`);
         return fetch(`${this.base()}i=${id}`)
             .then(response => {
                 return response.json();
